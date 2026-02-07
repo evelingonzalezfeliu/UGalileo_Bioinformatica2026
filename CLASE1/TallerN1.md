@@ -13,7 +13,7 @@ En este práctico vamos a realizar un análisis básico de calidad de secuencias
 
 ## Material necesario
 
-1. Dos archivos FASTQ comprimidos (`fastq.gz`). [(Descargar S10_R1)](CLASE1/data/S10.R1.fastq.gz)  [(Descargar S10_R2)](CLASE1/data/S10.R2.fastq.gz)  [(Descargar S9_R1)](CLASE1/data/S9.R1.fastq.gz)  [(Descargar S9_R2)](CLASE1/data/S9.R2.fastq.gz)
+1. Dos archivos FASTQ comprimidos (`fastq.gz`). [(Descargar S10_R1)](CLASE1/data/S10.R1.fastq.gz)  [(Descargar S10_R2)](../CLASE1/data/S10.R2.fastq.gz)  [(Descargar S9_R1)](CLASE1/data/S9.R1.fastq.gz)  [(Descargar S9_R2)](CLASE1/data/S9.R2.fastq.gz)
 2. Un archivo BAM alineado. [Descargar archivo](CLASE1/data/S11.aln.bam)
 3. Un archivo BED con los sitios específicos de BRCA1/2. [Descargar archivo](CLASE1/data/AmpliSeq_BRCA_hg38_new.bed)
 4. Acceso a la plataforma [Galaxy](https://usegalaxy.org/). Para guardar los análisis es necesario crearse una cuenta.
