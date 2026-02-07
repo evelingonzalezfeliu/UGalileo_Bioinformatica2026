@@ -146,6 +146,18 @@ Para profundizar en los resultados obtenidos en el análisis, podrías abordar l
    Investiga la cobertura de bases en los sitios críticos. ¿El porcentaje de bases cubiertas con al menos 30 lecturas es suficiente para detectar mutaciones de forma confiable?
 
 ---
+## Tarea – Análisis de calidad de secuencias NGS en Galaxy
+
+Cada estudiante deberá replicar el taller práctico utilizando las muestras **S9 y S10** en Galaxy, ejecutando **FastQC, BAMQC y MultiQC** para evaluar la calidad de las lecturas y del alineamiento, y elaborar un **informe breve en PDF** con la siguiente estructura:
+
+- **Introducción (1 página):** contexto general de NGS y la importancia del control de calidad de los datos de secuenciación.  
+- **Metodología (1 página):** descripción del flujo de trabajo realizado en Galaxy (FastQC → BAMQC → MultiQC).  
+- **Resultados (máx. 5 páginas):** pantallazos del paso a paso y de los reportes principales de ambas muestras (S9 y S10), con una breve descripción de cada figura.  
+- **Discusión / Conclusión (1 página):** interpretación de la calidad de las muestras, principales hallazgos y si los datos serían aptos para continuar a etapas posteriores del análisis.  
+- **Referencias (1 página, formato APA).**
+
+El informe debe enviarse al correo **s.calfunao@gmail.com** con copia a **evefeliu@gmail.com** **hasta el domingo 15 de febrero a las 23:59 hrs**.  
+El objetivo de la actividad es evaluar la capacidad de interpretar reportes de calidad y documentar un flujo básico de análisis de datos de secuenciación.
 
 ## Recursos útiles
 
