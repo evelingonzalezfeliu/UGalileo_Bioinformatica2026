@@ -5,6 +5,43 @@
 
 En este práctico vamos a realizar un análisis básico de calidad de secuencias de lectura en formato FASTQ, seguido por un análisis de calidad de un archivo BAM utilizando BAMQC y luego recopilaremos los resultados con MultiQC para obtener un informe resumido.
 
+      ┌───────────────┐
+      │   FASTQ       │
+      │ Lecturas crudas│
+      └───────┬───────┘
+              │
+              ▼
+      ┌───────────────┐
+      │    FastQC     │
+      │ Calidad FASTQ │
+      └───────┬───────┘
+              │
+              ▼
+      ┌───────────────┐
+      │     BAM       │
+      │ (archivo      │
+      │ alineado)     │
+      └───────┬───────┘
+              │
+              ▼
+      ┌───────────────┐
+      │     BAMQC     │
+      │ Calidad BAM   │
+      └───────┬───────┘
+              │
+              ▼
+      ┌───────────────┐
+      │    MultiQC    │
+      │ Resumen final │
+      └───────┬───────┘
+              │
+              ▼
+      ┌───────────────┐
+      │   Informe     │
+      │ estudiante    │
+      └───────────────┘
+
+
 ## Objetivos
 
 1. Evaluar la calidad de los archivos FASTQ utilizando **FASTQC**.
