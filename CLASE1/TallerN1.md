@@ -159,6 +159,11 @@ Cada estudiante deberá replicar el taller práctico utilizando las muestras **S
 El informe debe enviarse al correo **s.calfunao@gmail.com** con copia a **evefeliu@gmail.com** **hasta el domingo 15 de febrero a las 23:59 hrs**.  
 El objetivo de la actividad es evaluar la capacidad de interpretar reportes de calidad y documentar un flujo básico de análisis de datos de secuenciación.
 
+**Atención:** Como en la clase no alcanzamos a revisar la inclusión de **BAMQC** dentro de **MultiQC**, **no es necesario** integrarlo al reporte final para esta tarea.  
+Deben generar un **MultiQC únicamente con los resultados de FastQC** de las muestras **S9 y S10 (datos crudos / raw data)**, tal como se muestra en el tutorial.  
+Sin embargo, el análisis con **BAMQC sí debe ejecutarse** por separado: deberán **generar el reporte de BAMQC**, incluir **pantallazos del reporte** en el informe y **describir brevemente los principales resultados** observados.
+
+
 ## Recursos útiles
 
 - [Manual de Galaxy](https://galaxyproject.org/learn/)
