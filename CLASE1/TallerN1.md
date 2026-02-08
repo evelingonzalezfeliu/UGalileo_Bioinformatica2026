@@ -1,5 +1,8 @@
 # Taller_N1_Galileo
 
+**Tutorial recomendado (opcional):**  
+Para familiarizarse con la plataforma **Galaxy**, se sugiere revisar el siguiente tutorial introductorio antes de realizar el taller:  
+https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html
 
 # Práctico: Análisis de secuencias FASTQ, BAMQC y MultiQC utilizando Galaxy
 
