@@ -26,13 +26,13 @@ Este repositorio contiene materiales de clases prácticas:
 - Llamado de variantes  
 
 **Material**
-- Diapositivas: *(agregar link)*  
-- Taller: *(agregar link)*  
+- Diapositivas [CLASE3](CLASE1/GALILEO_Clase%201_%20%20Preprocesamiento%20de%20los%20datos%20y%20reportes%20de%20calidad..pdf) 
+- Taller [Link](CLASE1/TallerN1.md) 
 
 **Evaluación**
 - Tarea 2 – QC y reporte MultiQC  
 
-Carpeta: `CLASE1/`
+Carpeta: [CLASE1/](CLASE1/)
 
 ---
 
