@@ -2,7 +2,7 @@
 
 Repositorio del módulo práctico de Bioinformática  
 Magíster en Biología Molecular – FABIQ  
-Docente módulos: **Evelin González**
+Docente módulos: **Evelin González**  
 Email: evefeliu@gmail.com
 
 Este repositorio contiene materiales de clases prácticas:
