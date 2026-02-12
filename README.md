@@ -22,8 +22,7 @@ Este repositorio contiene materiales de clases prácticas:
 **Contenidos**
 - Preprocesamiento de datos NGS  
 - Métricas de calidad  
-- Cobertura y duplicados  
-- Llamado de variantes  
+- Cobertura y duplicados   
 
 **Material**
 - Diapositivas [CLASE3](CLASE1/GALILEO_Clase%201_%20%20Preprocesamiento%20de%20los%20datos%20y%20reportes%20de%20calidad..pdf) 
@@ -36,10 +35,11 @@ Carpeta: [CLASE1/](CLASE1/)
 
 ---
 
-### 🧬 CLASE 4 — Anotación de variantes  
+### 🧬 CLASE 4 — Llamado y anotación de variantes  
 📅 14 Febrero  
 
 **Contenidos**
+- Llamado de variantes 
 - ClinVar, COSMIC, gnomAD, OncoKB  
 - Anotación de variantes  
 - Interpretación clínica  
