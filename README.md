@@ -65,8 +65,8 @@ Carpeta: `CLASE4/`
 - Visualización básica  
 
 **Material**
-- 📊 Diapositivas: *(link)*  
-- 🧪 Taller: *(link)*  
+- Diapositivas: *(link)*  
+- Taller: *(link)*  
 
 Carpeta: `CLASE5/`
 
@@ -82,8 +82,8 @@ Carpeta: `CLASE5/`
 - visualización  
 
 **Material**
-- 📊 Diapositivas: *(link)*  
-- 🧪 Taller: *(link)*  
+- Diapositivas: *(link)*  
+- Taller: *(link)*  
 
 **Evaluación**
 - Taller 1  
