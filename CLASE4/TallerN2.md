@@ -31,29 +31,34 @@ El archivo generado es un VCF que posteriormente puede ser anotado e interpretad
 
 ### Instrucciones
 
-#### 1. Subida de datos a Galaxy
+### 1. Subida de datos a Galaxy
 
-1. Iniciar sesión en Galaxy
-2. Seleccionar **Upload Data**
-3. Cargar los archivos:
-   
-- BAM alineado  
-  [Descargar BAM](CLASE1/data/S11.aln.bam)
-- BED regiones BRCA  
-  [Descargar BED](CLASE1/data/AmpliSeq_BRCA_hg38_new.bed)
+1. Inicia sesión en Galaxy. [Galaxy](https://usegalaxy.org/). 
+2. Selecciona **Upload Data** en el panel izquierdo.
+3. Carga tus archivos:
+     - Un archivo BAM alineado. [Descargar archivo](../CLASE1/data/S11.aln.bam)
+     - Un archivo BED con los sitios específicos de BRCA1/2. [Descargar archivo](../CLASE1/data/AmpliSeq_BRCA_hg38_new.bed)
 
-#### 2. Llamado de variantes con DeepVariant
+### 2. Llamado de variantes con DeepVariant
 
-1. Buscar la herramienta **DeepVariant** en Galaxy  
-2. Seleccionar:
+1. Busca **DeepVariant** en Galaxy.
+   ![Upload](../CLASE1/images/deepvariant.png)
+3. Cargar en galaxy los archivos de entrada (BAM y BED)
+   ![Upload](../CLASE1/images/deepvariant1.png)
+   ![Upload](../CLASE1/images/deepvariant2.png)
+5. Configura los parámetros y ejecuta DeepVariant.
+   ![Upload](../CLASE1/images/deepvariant3.png)
+   ![Upload](../CLASE1/images/deepvariant4.png)
+7. Descarga o guarda el archivo VCF generado.
+   ![Upload](../CLASE1/images/deepvariant5.png)
 
-- Input BAM  
-- Reference genome: hg38  
-- Regions BED  
-
-3. Ejecutar el análisis  
-
-El resultado será un archivo:
+8. Interpretación de Resultados.Los campos clave en un VCF incluyen:
+- **CHROM**: Cromosoma de la variante.
+- **POS**: Posición de la variante.
+- **REF**: Base de referencia.
+- **ALT**: Base alternativa.
+- **QUAL**: Calidad de la llamada.
+- **INFO**: Información adicional (por ejemplo, profundidad de cobertura y frecuencia alélica).
 
 # 🧬 Tarea 3 — Llamado y anotación de variantes
 
