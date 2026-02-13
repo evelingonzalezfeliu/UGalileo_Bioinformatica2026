@@ -45,13 +45,13 @@ Carpeta: [CLASE1/](CLASE1/)
 - Interpretación clínica  
 
 **Material**
-- Diapositivas: *(link)*  
-- Taller: *(link)*  
+- Diapositivas: [CLASE4]()  
+- Taller: [link](CLASE4/TallerN2.md)  
 
 **Evaluación**
 - Tarea 3 – Interpretación de variantes  
 
-Carpeta: `CLASE4/`
+Carpeta: [CLASE4/](CLASE4/)
 
 ---
 
