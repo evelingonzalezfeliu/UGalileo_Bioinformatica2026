@@ -1,12 +1,12 @@
 # Taller_N2_Galileo
 
-# Práctico — Llamado y anotación de variantes en Galaxy
+# Práctico — Llamado y anotación de variantes
 
 ## Objetivos
 
 1. Realizar el llamado de variantes en datos genómicos utilizando **DeepVariant** en Galaxy.  
 2. Comprender qué es un llamado de variantes y cómo interpretar archivos VCF.  
-3. Generar un archivo de variantes y anotar su contenido con bases de datos clínicas.  
+3. Generar un archivo de variantes y anotar su contenido con bases de datos clínicas (Cancer Genome Interpreter, CGI).  
 4. Identificar variantes patogénicas, VUS y benignas en un contexto de cáncer de mama.
 
 ---
@@ -17,9 +17,10 @@ El llamado de variantes es el proceso mediante el cual se identifican diferencia
 Los tipos principales de variantes incluyen:
 - **SNVs (Single Nucleotide Variants):** cambios de una sola base  
 - **Indels:** inserciones o deleciones de bases  
-
 El resultado del proceso es un archivo **VCF (Variant Call Format)** que contiene todas las variantes detectadas.
 ---
+
+## Parte1: Llamado de variantes
 
 ### DeepVariant
 
@@ -28,25 +29,20 @@ Utiliza modelos de redes neuronales para detectar variantes con alta precisión 
 
 El archivo generado es un VCF que posteriormente puede ser anotado e interpretado.
 
----
+### Instrucciones
 
-## Instrucciones
+#### 1. Subida de datos a Galaxy
 
-### 1. Subida de datos a Galaxy
-
-1. Iniciar sesión en Galaxy  
-2. Seleccionar **Upload Data**  
+1. Iniciar sesión en Galaxy
+2. Seleccionar **Upload Data**
 3. Cargar los archivos:
-
+   
 - BAM alineado  
   [Descargar BAM](CLASE1/data/S11.aln.bam)
-
 - BED regiones BRCA  
   [Descargar BED](CLASE1/data/AmpliSeq_BRCA_hg38_new.bed)
 
----
-
-### 2. Llamado de variantes con DeepVariant
+#### 2. Llamado de variantes con DeepVariant
 
 1. Buscar la herramienta **DeepVariant** en Galaxy  
 2. Seleccionar:
