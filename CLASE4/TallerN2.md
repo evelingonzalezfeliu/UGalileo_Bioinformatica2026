@@ -20,7 +20,7 @@ Los tipos principales de variantes incluyen:
 El resultado del proceso es un archivo **VCF (Variant Call Format)** que contiene todas las variantes detectadas.
 ---
 
-## Parte1: Llamado de variantes
+## Parte 1: Llamado de variantes con DeepVariant
 
 ### DeepVariant
 
@@ -28,8 +28,6 @@ El resultado del proceso es un archivo **VCF (Variant Call Format)** que contien
 Utiliza modelos de redes neuronales para detectar variantes con alta precisión a partir de archivos BAM alineados.
 
 El archivo generado es un VCF que posteriormente puede ser anotado e interpretado.
-
-### Instrucciones
 
 ### 1. Subida de datos a Galaxy
 
@@ -59,6 +57,61 @@ El archivo generado es un VCF que posteriormente puede ser anotado e interpretad
 - **ALT**: Base alternativa.
 - **QUAL**: Calidad de la llamada.
 - **INFO**: Información adicional (por ejemplo, profundidad de cobertura y frecuencia alélica).
+
+---
+## Parte 2: Anotación de Variantes con Cancer Genome Interpreter (CGI)
+
+### **¿Qué es Cancer Genome Interpreter (CGI)?**  
+CGI es una herramienta bioinformática que ayuda a interpretar variantes somáticas y germinales relacionadas con el cáncer. Proporciona información sobre el impacto funcional y clínico de las variantes, y las conecta con biomarcadores conocidos y terapias dirigidas.
+
+### **Paso a Paso: Anotación en CGI**  
+
+1. **Acceder a CGI**  
+   - Dirígete a [https://www.cancergenomeinterpreter.org](https://www.cancergenomeinterpreter.org).  
+   - Crea una cuenta o inicia sesión.  
+
+2. **Subir el archivo VCF**    
+   - Haz clic en **"Add file +"** y selecciona tu archivo **VCF**.  
+   - Configura las opciones de anotación que se observan en la imagen y haz clic en **"Run"**.
+     ![Upload](../CLASE1/images/cgi1.png)
+   - Se iniciará la anotación de la variantes presentes en el archivo VCF
+     ![Upload](../CLASE1/images/cgi2.png)
+
+3. **Revisar y Exportar Resultados**  
+   - Revisa el informe generado: impacto funcional, relevancia clínica y terapias asociadas.  
+   - Descarga el los resulttados y cargalos en **Excel** para documentar.
+     ![Upload](../CLASE1/images/cgi3.png)
+     ![Upload](../CLASE1/images/cgi4.png)
+
+---
+
+## Parte 3: Anotación de Variantes Patogénicas con OncoKB
+
+### **¿Qué es OncoKB?**  
+**OncoKB** es una base de datos de conocimiento de oncología de precisión que clasifica variantes genéticas en función de su relevancia clínica, desde biomarcadores predictivos hasta variantes sin impacto conocido.
+
+### **Paso a Paso: Identificación de Variantes en OncoKB**
+
+1. **Acceder a OncoKB**  
+   - Ingresa a [https://www.oncokb.org](https://www.oncokb.org). 
+
+2. **Buscar Variantes Anotadas**  
+   - Utiliza las variantes identificadas previamente en **CGI** 
+   - Ingresa cada variante en la barra de búsqueda de OncoKB.
+     ![Upload](CLASE1/images/oncokb1.png)
+
+3. **Revisar la Clasificación Clínica**  
+   - OncoKB clasifica las variantes en diferentes niveles:  
+     - **Terapéuticamente accionables** (niveles 1-4).  
+     - **De relevancia diagnóstica o pronóstica**.  
+     - **Sin impacto clínico conocido**.
+       ![Upload](../CLASE1/images/oncokb2.png)
+       ![Upload](../CLASE1/images/oncokb3.png)
+
+4. **Documentar los Resultados**  
+   - Guarda capturas de pantalla o exporta los resultados relevantes.  
+
+---
 
 # 🧬 Tarea 3 — Llamado y anotación de variantes
 
