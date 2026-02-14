@@ -40,7 +40,7 @@ Carpeta: [CLASE1/](CLASE1/)
 
 **Contenidos**
 - Llamado de variantes 
-- ClinVar, COSMIC, gnomAD, OncoKB  
+- ClinVar, OncoKB, CGI  
 - Anotación de variantes  
 - Interpretación clínica  
 
