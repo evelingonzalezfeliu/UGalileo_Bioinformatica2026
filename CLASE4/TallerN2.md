@@ -80,7 +80,9 @@ VAF | 0.53 | 53% de lecturas con la variante |
 GQ | 22 | Calidad del genotipo |
 
 (TABLA 1: DESCRIPCION DE VARIANTE)
+
 Variante heterocigota con alta cobertura y frecuencia alélica ~50%, lo que indica una llamada confiable para análisis clínico.
+
 **Ahora debemos averiguar si esta variante es patogénica, benigna o VUS (significado incierto)**
 
 ---
@@ -138,81 +140,48 @@ CGI es una herramienta bioinformática que ayuda a interpretar variantes somáti
 
 ---
 
-# 🧬 Tarea 3 — Llamado y anotación de variantes
+## Tarea — Encuentra la variante patogénica
 
-## Objetivo
-
-En esta tarea el estudiante ejecutará un flujo básico de análisis NGS en Galaxy, replicando el taller realizado en clase.
+### Objetivo
+Se analizará un **BAM de cáncer de mama** que contiene al menos una variante patogénica conocida en genes asociados a predisposición tumoral.  
+El objetivo es simular un escenario de interpretación clínica real, identificando y clasificando variantes a partir de datos de secuenciación.
 
 El estudiante deberá:
-
 - Realizar el llamado de variantes utilizando **DeepVariant**  
-- Generar un archivo **VCF**  
-- Anotar variantes con bases de datos clínicas y poblacionales  
-- Identificar y describir:
+- Generar un archivo **VCF** filtrado solo con variantes **PASS**  
+- Anotar las variantes con **CGI**  
+- Identificar y describir la variante patogénica (OncoKB/CGI/VCF)  
+- Interpretar la información del VCF:
 
-  - 1 variante **patogénica**  
-  - 1 variante **VUS**  
-  - 1 variante **benigna**  
+| Campo | Valor | Significado |
+|------|------|-------------|
+CHROM |  | Cromosoma |
+POS |  | Posición genómica |
+REF |  | Base de referencia |
+ALT |  | Base variante |
+QUAL |  | Calidad de la llamada |
+FILTER |  | Estado de filtrado |
+GT |  | Genotipo |
+DP |  | Profundidad de lectura |
+AD |  | Lecturas ref/alt |
+VAF |  | Frecuencia alélica |
+GQ |  | Calidad del genotipo |
 
----
+## Informe
+- **Introducción (1 pág.)**: contexto de NGS y relevancia del control de calidad.  
+- **Metodología (1 pág.)**: flujo realizado (DeepVariant → bcftools → CGI).  
+- **Resultados (máx. 5 págs.)**: capturas del análisis y reportes principales con breve descripción.  
+- **Discusión/Conclusión (1 pág.)**: interpretación de los resultados.  
+- **Referencias**: formato APA.
 
-## Contexto biológico
+## Preguntas guía para la discusión
+- ¿Presenta asociación terapéutica según OncoKB (fármacos, nivel de evidencia)?  
+- ¿Qué relevancia clínica podría tener en cáncer de mama?  
+- ¿Cuántas lecturas soportan la variante (DP y AD)? ¿La llamada es confiable?  
+- ¿Cuál es la frecuencia alélica de la variante y qué sugiere sobre su estado (heterocigota/homocigota)?  
+- ¿Se identificaron variantes benignas en el análisis?
 
-Se analizará un **BAM de cáncer de mama** que contiene al menos una variante patogénica conocida en genes asociados a predisposición tumoral.
 
-El objetivo es simular un escenario de interpretación clínica real, donde se debe identificar y clasificar variantes genómicas a partir de datos de secuenciación.
 
----
 
-## Flujo de trabajo
 
-1. Ejecutar **DeepVariant** en Galaxy con el BAM proporcionado.
-2. Obtener el archivo **VCF**.
-3. Anotar el VCF utilizando herramientas de anotación en Galaxy (VEP u otra).
-4. Seleccionar tres variantes:
-   - 1 patogénica  
-   - 1 VUS  
-   - 1 benigna  
-
----
-
-## Información a reportar por variante
-
-Para cada variante seleccionada completar la siguiente tabla:
-
-| Campo | Descripción |
-|------|-------------|
-Gen | Gen afectado |
-Tipo de variante | SNV, indel, etc. |
-Frecuencia gnomAD | Frecuencia poblacional |
-ClinVar | Clasificación clínica |
-CADD score | Score de deleteriedad |
-OncoKB | Evidencia clínica/terapéutica |
-
----
-
-## Clasificación final
-
-Cada variante deberá clasificarse como:
-
-- Benigna  
-- VUS  
-- Patogénica  
-
-La clasificación debe ser **justificada** con evidencia de bases de datos y predictores.
-
----
-
-## Discusión
-
-Responder y discutir brevemente:
-
-- Número de lecturas que soportan la variante (**DP en el VCF**)  
-- Frecuencia alélica de la variante  
-- ¿Por qué la variante VUS se clasifica como VUS?  
-- ¿Por qué la variante benigna se considera benigna?  
-- ¿La variante patogénica tiene asociación farmacológica en OncoKB?  
-- ¿Qué relevancia clínica podría tener en cáncer de mama?
-
----
