@@ -140,11 +140,10 @@ CGI es una herramienta bioinformática que ayuda a interpretar variantes somáti
 
 ---
 
-## Tarea — Encuentra la variante patogénica
+## Tarea — Llamado y anotación de variantes
 
 ### Objetivo
-Se analizará un **BAM de cáncer de mama** que contiene al menos una variante patogénica conocida en genes asociados a predisposición tumoral.  
-El objetivo es simular un escenario de interpretación clínica real, identificando y clasificando variantes a partir de datos de secuenciación.
+Se analizará un **BAM de cáncer de mama** que contiene al menos una variante patogénica conocida en genes asociados a predisposición tumoral.  El objetivo es simular un escenario de interpretación clínica real, identificando y clasificando variantes a partir de datos de secuenciación.
 
 El estudiante deberá:
 - Realizar el llamado de variantes utilizando **DeepVariant**  
