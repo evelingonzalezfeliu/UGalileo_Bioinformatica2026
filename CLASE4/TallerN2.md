@@ -143,7 +143,17 @@ CGI es una herramienta bioinformática que ayuda a interpretar variantes somáti
 ## Tarea — Llamado y anotación de variantes
 
 ### Objetivo
-Se analizará un **BAM de cáncer de mama** que contiene al menos una variante patogénica conocida en genes asociados a predisposición tumoral.  El objetivo es simular un escenario de interpretación clínica real, identificando y clasificando variantes a partir de datos de secuenciación.
+
+Se analizará un **archivo BAM** que podría contener una variante patogénica conocida en genes asociados a predisposición a cáncer de mama (BRCA1 o BRCA2).  
+El objetivo es simular un escenario de interpretación clínica real, donde el estudiante deberá identificar y clasificar variantes (patogénicas o benignas) a partir de datos de secuenciación.
+
+Cada estudiante debe seleccionar **uno** de los siguientes archivos para realizar la tarea:
+
+- [S11.bam](https://github.com/evelingonzalezfeliu/taller_HFRZ_2024/blob/main/CLASE1/data/S11.aln.bam)  
+- [LV.cram](../data/LV.out.cram)  
+- [PP.cram](../data/PP.out.cram)  
+
+> Los archivos **CRAM** son compatibles con BAM y pueden analizarse siguiendo exactamente el mismo flujo de trabajo.
 
 El estudiante deberá:
 - Realizar el llamado de variantes utilizando **DeepVariant**  
