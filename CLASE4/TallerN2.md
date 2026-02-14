@@ -41,22 +41,47 @@ El archivo generado es un VCF que posteriormente puede ser anotado e interpretad
 
 1. Busca **DeepVariant** en Galaxy.
    ![Upload](../CLASE1/images/deepvariant.png)
-3. Cargar en galaxy los archivos de entrada (BAM y BED)
+2. Cargar en galaxy los archivos de entrada (BAM y BED)
    ![Upload](../CLASE1/images/deepvariant1.png)
    ![Upload](../CLASE1/images/deepvariant2.png)
-5. Configura los parámetros y ejecuta DeepVariant.
+3. Configura los parámetros y ejecuta DeepVariant.
    ![Upload](../CLASE1/images/deepvariant3.png)
    ![Upload](../CLASE1/images/deepvariant4.png)
-7. Descarga o guarda el archivo VCF generado.
+4. Observa el VCF generado. Cada linea corresponde a una variante
    ![Upload](../CLASE1/images/deepvariant5.png)
+5. Filtramos el VCF con bcftools view. Selecionamos solo variantes PASS
+   ![Upload](../CLASE1/images/bcfftools_view1.png)
+   ![Upload](../CLASE1/images/bcfftools_view2.png)
+7. Descarga o guarda el archivo VCF generado. 
+   ![Upload](../CLASE1/images/VCF_PASS.png)
 
-8. Interpretación de Resultados.Los campos clave en un VCF incluyen:
+9. Interpretación de Resultados.Los campos clave en un VCF incluyen:
 - **CHROM**: Cromosoma de la variante.
 - **POS**: Posición de la variante.
 - **REF**: Base de referencia.
 - **ALT**: Base alternativa.
 - **QUAL**: Calidad de la llamada.
 - **INFO**: Información adicional (por ejemplo, profundidad de cobertura y frecuencia alélica).
+
+Ejemplo intepretacion de una variante del VCF, descatada de la imagen anterior:
+
+| Campo | Valor | Significado |
+|------|------|-------------|
+CHROM | chr13 | Cromosoma donde ocurre la variante |
+POS | 32316435 | Posición genómica (hg38) |
+REF | G | Base de referencia |
+ALT | A | Base variante |
+QUAL | 24.6 | Calidad de la llamada |
+FILTER | PASS | Variante confiable |
+GT | 0/1 | Genotipo heterocigota |
+DP | 932 | Profundidad de lectura total |
+AD | 438,494 | Lecturas ref vs variante |
+VAF | 0.53 | 53% de lecturas con la variante |
+GQ | 22 | Calidad del genotipo |
+
+(TABLA 1: DESCRIPCION DE VARIANTE)
+Variante heterocigota con alta cobertura y frecuencia alélica ~50%, lo que indica una llamada confiable para análisis clínico.
+**Ahora debemos averiguar si esta variante es patogénica, benigna o VUS (significado incierto)**
 
 ---
 ## Parte 2: Anotación de Variantes con Cancer Genome Interpreter (CGI)
