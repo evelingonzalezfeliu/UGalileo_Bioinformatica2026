@@ -180,7 +180,6 @@ GQ |  | Calidad del genotipo |
 - ¿Cuál es la frecuencia alélica de la variante y qué sugiere sobre su estado (heterocigota/homocigota)?  
 - ¿Se identificaron variantes benignas en el análisis?
 
-
-
+El informe debe enviarse al correo s.calfunao@gmail.com con copia a evefeliu@gmail.com hasta el domingo 22 de febrero a las 23:59 hrs.
 
 
