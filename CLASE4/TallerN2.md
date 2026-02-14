@@ -52,7 +52,7 @@ El archivo generado es un VCF que posteriormente puede ser anotado e interpretad
 5. Filtramos el VCF con bcftools view. Selecionamos solo variantes PASS
    ![Upload](../CLASE1/images/bcfftools_view1.png)
    ![Upload](../CLASE1/images/bcfftools_view2.png)
-7. Descarga o guarda el archivo VCF generado. 
+7. Descarga el archivo VCF generado. 
    ![Upload](../CLASE1/images/VCF_PASS.png)
 
 9. Interpretación de Resultados.Los campos clave en un VCF incluyen:
