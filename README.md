@@ -45,7 +45,7 @@ Carpeta: [CLASE1/](CLASE1/)
 - Interpretación clínica  
 
 **Material**
-- Diapositivas: [CLASE4]()  
+- Diapositivas: [CLASE4](CLASE4/GALILEO_Clase%204_%20Llamado%20y%20anotacio%CC%81n%20de%20variantes.pdf) 
 - Taller: [link](CLASE4/TallerN2.md)  
 
 **Evaluación**
