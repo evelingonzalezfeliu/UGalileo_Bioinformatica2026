@@ -34,7 +34,7 @@ El archivo generado es un VCF que posteriormente puede ser anotado e interpretad
 1. Inicia sesión en Galaxy. [Galaxy](https://usegalaxy.org/). 
 2. Selecciona **Upload Data** en el panel izquierdo.
 3. Carga tus archivos:
-     - Un archivo BAM alineado. [Descargar archivo](../CLASE1/data/S11.aln.bam)
+     - Un archivo BAM alineado. [Descargar archivo](https://github.com/evelingonzalezfeliu/taller_HFRZ_2024/blob/main/CLASE1/data/S11.aln.bam)
      - Un archivo BED con los sitios específicos de BRCA1/2. [Descargar archivo](../CLASE1/data/AmpliSeq_BRCA_hg38_new.bed)
 
 ### 2. Llamado de variantes con DeepVariant
@@ -125,7 +125,7 @@ CGI es una herramienta bioinformática que ayuda a interpretar variantes somáti
 2. **Buscar Variantes Anotadas**  
    - Utiliza las variantes identificadas previamente en **CGI** 
    - Ingresa cada variante en la barra de búsqueda de OncoKB.
-     ![Upload](CLASE1/images/oncokb1.png)
+     ![Upload](../CLASE1/images/oncokb1.png)
 
 3. **Revisar la Clasificación Clínica**  
    - OncoKB clasifica las variantes en diferentes niveles:  
