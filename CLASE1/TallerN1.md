@@ -159,7 +159,7 @@ Cada estudiante deberá replicar el taller práctico utilizando las muestras **S
 - **Discusión / Conclusión (1 página):** interpretación de la calidad de las muestras, principales hallazgos y si los datos serían aptos para continuar a etapas posteriores del análisis.  
 - **Referencias (1 página, formato APA).**
 
-El informe debe enviarse al correo **s.calfunao@gmail.com** con copia a **evefeliu@gmail.com** **hasta el domingo 15 de febrero a las 23:59 hrs**.  
+El informe debe enviarse al correo **s.calfunao@gmail.com** con copia a **evefeliu@gmail.com** **hasta el lunes 16 de febrero a las 23:59 hrs**.  
 El objetivo de la actividad es evaluar la capacidad de interpretar reportes de calidad y documentar un flujo básico de análisis de datos de secuenciación.
 
 **Atención:** Como en la clase no alcanzamos a revisar la inclusión de **BAMQC** dentro de **MultiQC**, **no es necesario** integrarlo al reporte final para esta tarea.  
