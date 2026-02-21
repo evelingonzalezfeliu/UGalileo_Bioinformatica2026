@@ -1,7 +1,7 @@
 ---
 title: "Taller - Introduccion a R"
 author: "Evelin Gonzalez"
-date: "2024-12-02"
+date: "2026-01-21"
 output: html_document
 ---
 
