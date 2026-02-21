@@ -1,36 +1,37 @@
 ---
 title: "Taller - Introduccion a R"
 author: "Evelin Gonzalez"
-date: "2026-01-21"
+date: "2024-12-02"
 output: html_document
 ---
 
 ## Introducción
 
-Este práctico tiene como objetivo familiarizarte con los conceptos básicos de R, incluyendo:
+Este práctico busca que puedas **leer, entender y modificar código en R**.  
+Trabajaremos con conceptos fundamentales que se usan en bioinformática:
+
+El objetivo es familiarizarse con los conceptos básicos de R:
 
 1.  Variables y tipos de datos.
 2.  Operaciones básicas y manejo de vectores.
 3.  Manejo de data frames.
 4.  Gráficos simples.
 5.  Importar datos
-6.  Condicionales en R
-5.  Introducción a herramientas avanzadas: `maftools` y `ggplot`.
+6.  Condicionales en R 
 
-------------------------------------------------------------------------
+---
 
-## Configuración Inicial
+## Configuración inicial
 
-Antes de comenzar, asegúrate de que R y RStudio estén instalados en tu computadora. También puedes instalar algunos paquetes útiles si no los tienes:
+```{r setup, message=FALSE, warning=FALSE}
+# Instalar paquetes si no los tienes
+# install.packages("ggplot2")
+# install.packages("dplyr")
+# install.packages("readr")
 
-```{r install}
-# Instalar paquetes necesarios
-#install.packages("ggplot2")
-#if (!requireNamespace("BiocManager", quietly = TRUE)) {
-#    install.packages("BiocManager")
-#}
-#BiocManager::install("maftools")
-
+library(ggplot2)
+library(dplyr)
+library(readr)
 ```
 
 ## 1. Variables y Tipos de Datos
@@ -55,6 +56,7 @@ class(x)  # Muestra "numeric" porque x es un número
 class(y)  # Muestra "character" porque y es un texto
 class(z)  # Muestra "logical" porque z es un valor lógico
 ```
+
 ```{r variable2}
 # Tu turno: crea tus propias variables
 mi_variable <- 123
@@ -219,7 +221,6 @@ tail(personas)  # Devuelve las últimas 6 filas del data frame
 summary(personas)  # Devuelve estadísticas descriptivas para columnas numéricas
 ```
 
-
 ## 4. Gráficos Simples en R
 
 R incluye herramientas integradas para crear gráficos de forma sencilla, como histogramas, gráficos de barras, diagramas de dispersión y más. Estos gráficos son esenciales para visualizar y explorar datos de manera efectiva.
@@ -290,8 +291,6 @@ plot(x, y,
 
 # Agregar una línea de tendencia
 abline(lm(y ~ x), col = "blue", lwd = 2)  # Línea de regresión con color azul y grosor 2
-
-
 ```
 ### Guardar gráficos
 Puedes guardar un gráfico en tu sistema como archivo de imagen.
@@ -314,25 +313,12 @@ Los archivos **CSV** (Comma-Separated Values) son uno de los formatos más comun
 
 ```{r import}
 # Cargar un archivo CSV
-datos <- read.csv("archivo.csv", header = TRUE, sep = ",")
+datos <- read.csv("datos.csv", header = TRUE, sep = ",")
 
 # Explorar los datos
 head(datos)    # Muestra las primeras filas
 str(datos)     # Muestra la estructura del archivo
 ```
-### Importar archivos de texto (TXT)
-Los archivos de texto con separadores personalizados se pueden importar con read.table().
-
-```{r import1}
-# Cargar un archivo TXT con tabuladores como separador
-annovar_txt <- read.table("17.SS.annovar_annot.hg38_multianno.txt", header = TRUE, sep = "\t")
-
-names(annovar_txt)
-# Verificar los datos
-dim(annovar_txt)
-
-```
-
 
 ## 6. Condicionales en R
 
@@ -350,31 +336,5 @@ if (edad >= 18) {
 } else {
   print("Eres menor de edad")  # Esto se ejecuta si la condición es falsa
 }
-```
-
-## 7. Introducción a maftools
-
-Uso de maftools El paquete maftools es útil para analizar datos de mutaciones somáticas. Aquí mostramos cómo cargar un archivo MAF y generar un resumen básico.
-
-
-```{r plotSummary}
-
-library(maftools) # Carga la librería maftools, utilizada para analizar y visualizar datos de mutaciones en formato MAF.
-
-## CAMBIAR
-setwd("/Users/evelingonzalez/Documents/Di_Genoma_LAB/taller_hospital") # Establece el directorio de trabajo donde se encuentran los archivos necesarios.
-
-filenames.s <- Sys.glob("annovar/*SS*hg38_multianno.txt") # Busca todos los archivos en la carpeta "annovar/" cuyo nombre contiene "SS" y termina en "hg38_multianno.txt".
-
-annovar_mafs.s = lapply(filenames.s, annovarToMaf, table = "ensGene", ens2hugo = FALSE, refBuild = "hg38") # Convierte cada archivo encontrado en filenames.s al formato MAF utilizando annovarToMaf; especifica el uso de "ensGene" y el ensamblaje de referencia "hg38".
-
-annovar.s = data.table::rbindlist(l = annovar_mafs.s, fill = TRUE) # Combina todos los archivos MAF generados en un solo objeto tipo tabla, rellenando valores faltantes si es necesario.
-
-vcNames <- c("Frame_Shift_Del", "Frame_Shift_Ins", "Missense_Mutation", "Nonsense_Mutation", "Silent") # Define una lista de categorías de mutaciones consideradas como variantes no sinónimas.
-
-summary = read.maf(maf = annovar.s, vc_nonSyn = vcNames) # Lee el MAF combinado y genera un resumen utilizando las categorías de mutaciones especificadas.
-
-write.table(annovar.s, file="ADN_variants.tsv", sep = "\t", row.names = F)
-
 ```
 
