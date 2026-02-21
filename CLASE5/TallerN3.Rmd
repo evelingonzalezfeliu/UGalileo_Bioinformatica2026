@@ -1,0 +1,380 @@
+---
+title: "Taller - Introduccion a R"
+author: "Evelin Gonzalez"
+date: "2024-12-02"
+output: html_document
+---
+
+## Introducción
+
+Este práctico tiene como objetivo familiarizarte con los conceptos básicos de R, incluyendo:
+
+1.  Variables y tipos de datos.
+2.  Operaciones básicas y manejo de vectores.
+3.  Manejo de data frames.
+4.  Gráficos simples.
+5.  Importar datos
+6.  Condicionales en R
+5.  Introducción a herramientas avanzadas: `maftools` y `ggplot`.
+
+------------------------------------------------------------------------
+
+## Configuración Inicial
+
+Antes de comenzar, asegúrate de que R y RStudio estén instalados en tu computadora. También puedes instalar algunos paquetes útiles si no los tienes:
+
+```{r install}
+# Instalar paquetes necesarios
+#install.packages("ggplot2")
+#if (!requireNamespace("BiocManager", quietly = TRUE)) {
+#    install.packages("BiocManager")
+#}
+#BiocManager::install("maftools")
+
+```
+
+## 1. Variables y Tipos de Datos
+
+### Asignación de variables
+
+En R, usamos el operador `<-` para asignar valores a una variable. Una variable es un contenedor que guarda datos, ya sean números, textos, valores lógicos, entre otros. A continuación, veremos ejemplos de cómo crear y trabajar con variables.
+
+```{r variable}
+
+# Asignar un número entero a una variable
+x <- 5  # "x" ahora contiene el valor 5
+
+# Asignar un texto (cadena de caracteres) a una variable
+y <- "Hola"  # "y" ahora contiene el texto "Hola"
+
+# Asignar un valor lógico (TRUE o FALSE) a una variable
+z <- TRUE  # "z" contiene el valor lógico TRUE
+
+# Verificar el tipo de dato de cada variable
+class(x)  # Muestra "numeric" porque x es un número
+class(y)  # Muestra "character" porque y es un texto
+class(z)  # Muestra "logical" porque z es un valor lógico
+```
+```{r variable2}
+# Tu turno: crea tus propias variables
+mi_variable <- 123
+mi_texto <- "Aprendiendo R"
+mi_logico <- FALSE
+
+# Verifica los tipos
+class(mi_variable) # ¿Qué tipo es?
+class(mi_texto)    # ¿Qué tipo es?
+class(mi_logico)   # ¿Qué tipo es?
+```
+
+## 2. Operaciones Básicas y Manejo de Vectores
+
+En R, los vectores son una de las estructuras de datos más básicas y esenciales. Un vector es una secuencia de elementos del mismo tipo (numéricos, textos, lógicos, etc.). 
+
+A continuación, exploraremos cómo crear vectores y realizar operaciones básicas con ellos.
+
+### Creación de vectores
+
+Puedes crear un vector usando la función `c()`, que significa "combinar".
+
+```{r vectores}
+
+# Crear un vector de números
+numeros <- c(10, 20, 30, 40)  # Vector con cuatro elementos: 10, 20, 30, 40
+
+# Crear un vector de caracteres (texto)
+nombres <- c("Ana", "Luis", "Juan")  # Vector con tres elementos: Ana, Luis, Juan
+
+# Crear un vector lógico
+logicos <- c(TRUE, FALSE, TRUE)  # Vector con tres valores lógicos: TRUE, FALSE, TRUE
+
+```
+
+### Operaciones básicas con vectores
+Puedes realizar operaciones matemáticas directamente sobre vectores.
+
+```{r vectores2}
+# Sumar todos los elementos del vector
+suma <- sum(numeros)  # Calcula la suma: 10 + 20 + 30 + 40
+
+# Calcular el promedio de los elementos del vector
+promedio <- mean(numeros)  # Calcula el promedio: (10 + 20 + 30 + 40) / 4
+
+# Multiplicar cada elemento del vector por un número
+producto <- numeros * 2  # Multiplica cada elemento por 2: 20, 40, 60, 80
+
+# Verificar el tamaño del vector
+longitud <- length(numeros)  # Devuelve el número de elementos en el vector
+
+# Mostrar los resultados
+suma       # Imprime la suma de los elementos
+promedio   # Imprime el promedio
+producto   # Imprime el nuevo vector multiplicado
+longitud   # Imprime la cantidad de elementos en el vector
+```
+
+### Indexación y selección de elementos
+Puedes acceder a elementos individuales de un vector usando corchetes [].
+
+```{r vectores3}
+# Seleccionar el primer elemento
+primer_elemento <- numeros[1]  # Devuelve el valor 10
+
+# Seleccionar el último elemento
+ultimo_elemento <- numeros[length(numeros)]  # Devuelve el valor 40
+
+# Seleccionar múltiples elementos
+sub_vector <- numeros[c(1, 3)]  # Devuelve un vector con los elementos 10 y 30
+
+# Excluir un elemento
+sin_segundo <- numeros[-2]  # Devuelve un vector sin el segundo elemento: 10, 30, 40
+
+```
+
+### Operaciones lógicas con vectores
+
+Puedes comparar elementos en un vector y generar un nuevo vector lógico.
+
+```{r vectores4}
+# Comparar cada elemento con un número
+mayores_que_20 <- numeros > 20  # Devuelve un vector lógico: FALSE, FALSE, TRUE, TRUE
+
+# Usar el resultado lógico para filtrar elementos
+filtrados <- numeros[numeros > 20]  # Devuelve un vector con elementos mayores a 20: 30, 40
+```
+
+## 3. Manejo de Data Frames
+
+Un data frame es una estructura de datos en R que organiza la información en forma de tabla, similar a una hoja de cálculo. Cada columna puede contener diferentes tipos de datos (numéricos, texto, lógicos, etc.), pero todas las filas deben tener el mismo número de elementos.
+
+### Creación de un data frame
+
+Puedes crear un data frame usando la función `data.frame()`.
+
+```{r dataframe}
+# Crear un data frame con columnas de nombres, edades y ciudades
+personas <- data.frame(
+  Nombre = c("Ana", "Luis", "Juan"),          # Columna 1: nombres
+  Edad = c(28, 34, 45),                      # Columna 2: edades
+  Ciudad = c("Santiago", "Valparaíso", "Concepción") # Columna 3: ciudades
+)
+
+# Mostrar el data frame completo
+print(personas)  # Imprime la tabla con todas las filas y columnas
+```
+### Acceso a datos en un data frame
+Puedes acceder a elementos individuales, columnas completas o subconjuntos del data frame.
+
+```{r dataframe1}
+# Acceder a una columna completa
+edades <- personas$Edad  # Devuelve el vector: 28, 34, 45
+
+# Acceder a un elemento específico (fila y columna)
+elemento <- personas[1, 2]  # Fila 1, columna 2: Devuelve el valor 28
+
+# Acceder a una fila completa
+fila1 <- personas[1, ]  # Devuelve la primera fila: Ana, 28, Santiago
+
+# Acceder a un subconjunto de columnas
+sub_datos <- personas[, c("Nombre", "Ciudad")]  # Devuelve solo las columnas Nombre y Ciudad
+```
+### Modificación de un data frame
+Puedes agregar, modificar o eliminar columnas y filas de un data frame.
+
+```{r dataframe2}
+# Agregar una nueva columna
+personas$Ingreso <- c(50000, 60000, 70000)  # Nueva columna con ingresos mensuales
+print(personas)  # Muestra el data frame actualizado
+
+# Modificar valores en una columna
+personas$Edad <- personas$Edad + 1  # Incrementa la edad de todos en 1 año
+print(personas)  # Muestra los cambios
+
+# Eliminar una columna
+personas$Ingreso <- NULL  # Elimina la columna "Ingreso"
+print(personas)  # Muestra el data frame sin la columna eliminada
+```
+### Filtrado de datos
+
+Puedes filtrar filas en base a condiciones específicas.
+
+```{r dataframe3}
+# Filtrar personas mayores de 30 años
+mayores_30 <- personas[personas$Edad > 30, ]  # Devuelve filas donde Edad > 30
+
+# Filtrar por ciudad
+en_santiago <- personas[personas$Ciudad == "Santiago", ]  # Devuelve filas donde Ciudad es "Santiago"
+
+# Filtrar usando múltiples condiciones
+filtrados <- personas[personas$Edad > 30 & personas$Ciudad == "Valparaíso", ] 
+# Devuelve filas donde Edad > 30 y Ciudad es "Valparaíso"
+
+# Mostrar las primeras filas
+head(personas)  # Devuelve las primeras 6 filas del data frame
+
+# Mostrar las últimas filas
+tail(personas)  # Devuelve las últimas 6 filas del data frame
+
+# Resumen estadístico de cada columna
+summary(personas)  # Devuelve estadísticas descriptivas para columnas numéricas
+```
+
+
+## 4. Gráficos Simples en R
+
+R incluye herramientas integradas para crear gráficos de forma sencilla, como histogramas, gráficos de barras, diagramas de dispersión y más. Estos gráficos son esenciales para visualizar y explorar datos de manera efectiva.
+
+### Crear un gráfico de dispersión
+
+Un gráfico de dispersión muestra la relación entre dos variables.
+
+```{r grafico1}
+
+# Crear datos de ejemplo
+x <- c(1, 2, 3, 4, 5)  # Valores para el eje X
+y <- c(2, 4, 6, 8, 10) # Valores para el eje Y
+
+# Crear un gráfico de dispersión
+plot(x, y, 
+     main = "Gráfico de Dispersión",  # Título del gráfico
+     xlab = "Eje X",                 # Etiqueta del eje X
+     ylab = "Eje Y",                 # Etiqueta del eje Y
+     col = "blue",                   # Color de los puntos
+     pch = 16)                       # Tipo de marcador (16 = círculo sólido)                  # Color de las barras
+
+```
+### Crear un histograma
+Un histograma muestra la distribución de una variable continua.
+
+```{r grafico2}
+# Generar datos aleatorios
+valores <- rnorm(100, mean = 50, sd = 10)  # 100 valores con media 50 y desviación estándar 10
+
+# Crear el histograma
+hist(valores, 
+     main = "Histograma de Valores",  # Título del gráfico
+     xlab = "Valores",                # Etiqueta del eje X
+     col = "lightblue",               # Color de las barras
+     border = "black")                # Color del borde de las barras
+
+```
+### Crear un gráfico de barras
+Un gráfico de barras es útil para comparar valores categóricos.
+
+```{r grafico3}
+# Crear datos de ejemplo
+categorias <- c("A", "B", "C")  # Categorías
+valores <- c(10, 20, 15)        # Valores asociados a las categorías
+
+# Crear el gráfico de barras
+barplot(valores, 
+        names.arg = categorias,     # Nombres de las categorías
+        main = "Gráfico de Barras", # Título del gráfico
+        xlab = "Categorías",        # Etiqueta del eje X
+        ylab = "Valores",           # Etiqueta del eje Y
+        col = "purple")             # Color de las barras
+
+```
+### Personalización de gráficos
+R permite personalizar completamente los gráficos, desde colores y etiquetas hasta líneas y estilos.
+
+```{r grafico4}
+# Personalizar un gráfico de dispersión
+plot(x, y, 
+     main = "Gráfico Personalizado", # Título
+     xlab = "Eje X (Personalizado)", # Etiqueta del eje X
+     ylab = "Eje Y (Personalizado)", # Etiqueta del eje Y
+     col = "red",                    # Color de los puntos
+     pch = 17,                       # Tipo de marcador (triángulo sólido)
+     cex = 2)                        # Tamaño de los puntos
+
+# Agregar una línea de tendencia
+abline(lm(y ~ x), col = "blue", lwd = 2)  # Línea de regresión con color azul y grosor 2
+
+
+```
+### Guardar gráficos
+Puedes guardar un gráfico en tu sistema como archivo de imagen.
+
+```{r grafico5}
+# Guardar un gráfico como archivo PNG
+png("grafico.png")  # Crear un archivo "grafico.png"
+plot(x, y, main = "Gráfico Guardado")
+dev.off()  # Cerrar el dispositivo gráfico
+
+```
+
+## 5. Importar Datos en R
+
+En esta sección aprenderás cómo importar datos desde diferentes tipos de archivos a R. Esto es esencial para trabajar con datos en análisis estadísticos y proyectos de ciencia de datos.
+
+### Importar archivos CSV
+
+Los archivos **CSV** (Comma-Separated Values) son uno de los formatos más comunes para almacenar datos tabulares. En R, podemos usar la función `read.csv()` para cargarlos.
+
+```{r import}
+# Cargar un archivo CSV
+datos <- read.csv("archivo.csv", header = TRUE, sep = ",")
+
+# Explorar los datos
+head(datos)    # Muestra las primeras filas
+str(datos)     # Muestra la estructura del archivo
+```
+### Importar archivos de texto (TXT)
+Los archivos de texto con separadores personalizados se pueden importar con read.table().
+
+```{r import1}
+# Cargar un archivo TXT con tabuladores como separador
+annovar_txt <- read.table("17.SS.annovar_annot.hg38_multianno.txt", header = TRUE, sep = "\t")
+
+names(annovar_txt)
+# Verificar los datos
+dim(annovar_txt)
+
+```
+
+
+## 6. Condicionales en R
+
+Los condicionales permiten ejecutar diferentes partes del código dependiendo de si una condición es verdadera o falsa. Esto es muy útil para tomar decisiones dentro de un programa.
+
+### Ejemplo básico de condicional
+
+```{r cond}
+# Asignar un valor a la variable
+edad <- 10
+
+# Usar una estructura condicional
+if (edad >= 18) {
+  print("Eres mayor de edad")  # Esto se ejecuta si la condición es verdadera
+} else {
+  print("Eres menor de edad")  # Esto se ejecuta si la condición es falsa
+}
+```
+
+## 7. Introducción a maftools
+
+Uso de maftools El paquete maftools es útil para analizar datos de mutaciones somáticas. Aquí mostramos cómo cargar un archivo MAF y generar un resumen básico.
+
+
+```{r plotSummary}
+
+library(maftools) # Carga la librería maftools, utilizada para analizar y visualizar datos de mutaciones en formato MAF.
+
+## CAMBIAR
+setwd("/Users/evelingonzalez/Documents/Di_Genoma_LAB/taller_hospital") # Establece el directorio de trabajo donde se encuentran los archivos necesarios.
+
+filenames.s <- Sys.glob("annovar/*SS*hg38_multianno.txt") # Busca todos los archivos en la carpeta "annovar/" cuyo nombre contiene "SS" y termina en "hg38_multianno.txt".
+
+annovar_mafs.s = lapply(filenames.s, annovarToMaf, table = "ensGene", ens2hugo = FALSE, refBuild = "hg38") # Convierte cada archivo encontrado en filenames.s al formato MAF utilizando annovarToMaf; especifica el uso de "ensGene" y el ensamblaje de referencia "hg38".
+
+annovar.s = data.table::rbindlist(l = annovar_mafs.s, fill = TRUE) # Combina todos los archivos MAF generados en un solo objeto tipo tabla, rellenando valores faltantes si es necesario.
+
+vcNames <- c("Frame_Shift_Del", "Frame_Shift_Ins", "Missense_Mutation", "Nonsense_Mutation", "Silent") # Define una lista de categorías de mutaciones consideradas como variantes no sinónimas.
+
+summary = read.maf(maf = annovar.s, vc_nonSyn = vcNames) # Lee el MAF combinado y genera un resumen utilizando las categorías de mutaciones especificadas.
+
+write.table(annovar.s, file="ADN_variants.tsv", sep = "\t", row.names = F)
+
+```
+
