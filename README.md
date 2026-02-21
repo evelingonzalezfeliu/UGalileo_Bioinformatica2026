@@ -65,10 +65,10 @@ Carpeta: [CLASE4/](CLASE4/)
 - Visualización básica  
 
 **Material**
-- Diapositivas: *(link)*  
-- Taller: *(link)*  
+- Diapositivas: [CLASE5](CLASE5/GALILEO_Clase%5_%Introducción%de%R.pdf) 
+- Taller: [link](CLASE5/TallerN3.Rmd)    
 
-Carpeta: `CLASE5/`
+Carpeta: [CLASE5/](CLASE5/)
 
 ---
 
