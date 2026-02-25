@@ -20,8 +20,7 @@ El objetivo es familiarizarse con los conceptos básicos de R:
 6.  Condicionales en R 
 
 Para ejecutar este .Rmd es necesario descargar el archivo CLASE5/datos.csv del repositorio
-** Este archivo (datos.csv) se debe guardar en la misma carpeta donde se encuentra el archivo TallerN3.Rmd **
-
+**Este archivo (datos.csv) se debe guardar en la misma carpeta donde se encuentra el archivo TallerN3.Rmd**
 ---
 
 ## Configuración inicial
