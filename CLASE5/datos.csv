@@ -1,0 +1,11 @@
+sample,gene,AF,DP,ClinSig
+S1,BRCA1,0.12,45,Pathogenic
+S1,TP53,0.02,80,Benign
+S2,TP53,0.50,20,Pathogenic
+S2,BRCA2,0.03,60,VUS
+S3,BRCA2,0.02,100,Benign
+S3,BRCA1,0.15,35,Pathogenic
+S4,PIK3CA,0.25,70,Pathogenic
+S4,BRCA1,0.01,90,Benign
+S5,TP53,0.40,50,Pathogenic
+S5,BRCA2,0.05,30,VUS
