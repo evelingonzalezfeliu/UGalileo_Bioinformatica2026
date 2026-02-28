@@ -99,7 +99,7 @@ Carpeta: [CLASE5/](CLASE6/)
 
 En este proyecto deberás:
 
-1. Ejecutar el archivo **RMarkdown** y generar el reporte en formato HTML.
+1. Ejecutar el archivo **RMarkdown** [P1_Nombre_Alumno.Rmd](CLASE6/P1_Nombre_Alumno.Rmd)  y generar el reporte en formato HTML.
 2. Identificar y corregir **5 errores intencionales** en el código.
 3. Analizar los resultados obtenidos a partir de:
    - Resúmenes por muestra y por gen.
