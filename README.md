@@ -77,8 +77,6 @@ Carpeta: [CLASE5/](CLASE5/)
 
 **Contenidos**
 - maftools  
-- PCA  
-- clustering  
 - visualización  
 
 **Material**
