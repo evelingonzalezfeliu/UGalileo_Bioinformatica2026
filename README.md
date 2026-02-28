@@ -121,6 +121,8 @@ El objetivo es evaluar tu capacidad de:
 - **plotmafSummary:** 15 pts  
 - **Oncoplot + interpretación:** 15 pts
 
+Se debe enviar el `HTML` o el `.Rmd` al correo s.calfunao@gmail.com con copia a evefeliu@gmail.com hasta el 11 de marzo a las 23:59 hrs.
+
 ---
 
 ## 💻 Herramientas utilizadas
