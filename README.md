@@ -92,6 +92,39 @@ Carpeta: `CLASE6/`
 
 ---
 
+
+### 📊 Proyecto 1
+
+📅 Entrega: 11 de marzo. 23:59 h
+
+### Descripción general
+
+En este proyecto deberás:
+
+1. Ejecutar el archivo **RMarkdown** y generar el reporte en formato HTML.
+2. Identificar y corregir **5 errores intencionales** en el código.
+3. Analizar los resultados obtenidos a partir de:
+   - Resúmenes por muestra y por gen.
+   - Visualizaciones generadas con `plotmafSummary()`.
+   - Oncoplot de los genes más mutados.
+4. Responder preguntas de interpretación basadas en los resultados y gráficos.
+
+El objetivo es evaluar tu capacidad de:
+- Detectar y resolver errores en R.
+- Comprender la estructura de un archivo MAF.
+- Interpretar resultados de análisis de mutaciones somáticas.
+- Comunicar conclusiones de manera clara y fundamentada.
+
+### Distribución de puntaje (100 puntos)
+
+- **Debug de 5 errores:** 50 pts  
+  *(10 pts por cada error correctamente identificado, explicado y corregido)*
+- **Resúmenes (muestras + genes):** 20 pts  
+- **plotmafSummary:** 15 pts  
+- **Oncoplot + interpretación:** 15 pts
+
+---
+
 ## 💻 Herramientas utilizadas
 - Galaxy  
 - FastQC  
