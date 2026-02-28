@@ -80,13 +80,13 @@ Carpeta: [CLASE5/](CLASE5/)
 - visualización  
 
 **Material**
-- Diapositivas: *(link)*  
-- Taller: *(link)*  
+- Diapositivas: [CLASE6](CLASE6/GALILEO_Clase%6_Librería%Maftools.pdf)  
+- Taller:[link](CLASE6/Taller_Maftools.Rmd)   
 
 **Evaluación**
 - Taller 1  
 
-Carpeta: `CLASE6/`
+Carpeta: [CLASE5/](CLASE6/)
 
 ---
 
