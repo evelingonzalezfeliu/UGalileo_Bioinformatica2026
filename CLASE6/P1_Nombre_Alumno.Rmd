@@ -63,7 +63,7 @@ En esta sección cargaremos un archivo **MAF** de ejemplo incluido en `maftools`
 
 ```{r cargar_maf}
 # Rutas a archivos de ejemplo (incluidos dentro del paquete maftools)
-maf_path  <- system.file("extdata", "tcga_laml.maf.gz ", package = "maftools")  # ERROR 2: espacio extra al final
+maf_path  <- system.file("extdata", "tcga_laml.maf.gz ", package = "maftools")
 clin_path <- system.file("extdata", "tcga_laml_annot.tsv", package = "maftools")
 
 # Cargar datos clínicos
