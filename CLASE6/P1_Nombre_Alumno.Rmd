@@ -53,6 +53,7 @@ if (!requireNamespace("R.utils", quietly = TRUE)) {
 
 ```{r librerias}
 # Cargar librerías
+# library(maftools)
 library(R.utils)
 ```
 
