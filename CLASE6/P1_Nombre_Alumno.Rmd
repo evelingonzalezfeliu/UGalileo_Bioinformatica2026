@@ -1,0 +1,174 @@
+---
+title: "Proyecto 1 — maftools: debugging + interpretación"
+author: "Nombre Apellido"
+date: "2026-02-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Instrucciones
+
+1.  Ejecuta este **RMarkdown** y genera el reporte con **Knit → HTML**.\
+2.  El documento contiene **5 errores intencionales**.\
+3.  Corrige los errores y completa las respuestas solicitadas en cada sección.
+
+------------------------------------------------------------------------
+
+## Errores encontrados y solución
+
+Completa esta tabla:
+
+| Error | ¿Qué pasó? (mensaje/causa) | ¿Cómo lo solucionaste? |
+|------:|----------------------------|------------------------|
+|     1 |                            |                        |
+|     2 |                            |                        |
+|     3 |                            |                        |
+|     4 |                            |                        |
+|     5 |                            |                        |
+
+### 1. Instalación y carga de paquetes
+
+Antes de comenzar, asegúrate de tener instalados los paquetes necesarios.\
+Si ya los tienes instalados, el código simplemente los cargará.
+
+```{r instalacion_paquetes}
+# Verificar e instalar BiocManager si no existe
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+
+# Verificar e instalar maftools desde Bioconductor
+if (!requireNamespace("maftools", quietly = TRUE)) {
+  BiocManager::install("maftools")
+}
+
+# Verificar e instalar R.utils (necesario para leer archivos .gz)
+if (!requireNamespace("R.utils", quietly = TRUE)) {
+  install.packages("R.utils")
+}
+```
+
+```{r librerias}
+# Cargar librerías
+library(R.utils)
+```
+
+### 2. Cargar datos MAF (TCGA LAML)
+
+En esta sección cargaremos un archivo **MAF** de ejemplo incluido en `maftools` (TCGA-LAML) y su tabla clínica asociada.
+
+```{r cargar_maf}
+# Rutas a archivos de ejemplo (incluidos dentro del paquete maftools)
+maf_path  <- system.file("extdata", "tcga_laml.maf.gz ", package = "maftools")  # ERROR 2: espacio extra al final
+clin_path <- system.file("extdata", "tcga_laml_annot.tsv", package = "maftools")
+
+# Cargar datos clínicos
+clinical <- read.delim(clin_path, stringsAsFactors = FALSE)
+
+# Leer el MAF y crear el objeto maftools
+laml <- read.maf(maf = maf_path, clinicalData = clinical)
+
+# Mostrar el objeto
+laml
+```
+
+### 3. Resúmenes básicos: muestras y genes
+
+Antes de hacer gráficos, exploraremos el dataset con resúmenes.
+
+#### 3.1 Resumen por muestra (`getSampleSummary`)
+
+Muestra cuántas mutaciones hay en cada muestra/paciente.
+
+```{r sample_summary}
+sample_summary <- getSampleSummary(laml)
+head(sample_summary)
+```
+
+**Responde:**
+
+💡 Pista: Revisa las columnas de `getSampleSummary(laml)` y observa las categorías de variantes.
+
+-   ¿Cuántas muestras hay en total? **R:**
+
+-   ¿Existe alguna muestra con un número considerablemente mayor de mutaciones que el resto? **R:**
+
+-   En la muestra con mayor número de mutaciones:
+
+    -   ¿Cuántas variantes de tipo *Frame_Shift* presenta?
+    -   ¿Cuántas variantes de tipo *Missense_Mutation* presenta? **R:**
+
+#### 3.2 Resumen por gen (`getGeneSummary`)
+
+Muestra cuántas muestras están mutadas por gen y el tipo de mutación.
+
+```{r gene_summary}
+gene_summary <- getGenSummary(laml)
+
+head(gene_summary, 10) 
+```
+
+**Responde:**
+
+-   ¿Cuáles son los **3 genes más mutados** (según la tabla)?\
+    **R:**
+
+-   ¿Qué columna usarías para justificar tu respuesta?\
+    **R:**
+
+### 4. Visualización general: `plotmafSummary`
+
+La función `plotmafSummary()` genera un resumen visual del dataset: - Distribución de tipos de mutación - Número de mutaciones por muestra - Estadísticas descriptivas
+
+```{r plotmaf_summary}
+plotmafSummary(
+  maf = laml,
+  rmOutlier = TRUE,
+  addstats = "median",
+  dashboard = TRUE,
+  titvRaw = FALSE
+)
+```
+
+**Responde (observando el gráfico):**
+
+-   ¿Qué tipo o clase de mutación es la más frecuente en el dataset?\
+    **R:**
+
+-   ¿La distribución de mutaciones por muestra parece homogénea o hay muestras con muchas más mutaciones que otras?\
+    **R:**
+
+-   ¿Cuál es el valor aproximado de la mediana de mutaciones por muestra?\
+    **R:**
+    
+### 5. Oncoplot — Visualización de genes más mutados
+
+El oncoplot muestra las mutaciones más frecuentes en la cohorte.
+
+```{r oncoplot}
+
+oncoplot(maf = laml, top = 15, showTumorSampleBarcodes = FALSE)
+```
+
+**Responde (observando el oncoplot y los resúmenes):**
+
+- ¿Qué gen podría considerarse un posible *driver* en esta cohorte?  
+  **R:**  
+
+- ¿Cuáles son los 3 genes más mutados en la cohorte?  
+  **R:**  
+
+- ¿Cuál es el porcentaje aproximado de pacientes mutados para cada uno de esos 3 genes?  
+  **R:**  
+
+- ¿La carga mutacional parece homogénea entre pacientes o existe heterogeneidad?  
+  **R:**  
+
+- ¿Hay pacientes con muchas más mutaciones que otros?  
+  **R:**  
+  
+- En el gen más frecuentemente mutado, ¿qué tipo de mutación predomina (Missense, Nonsense, Frame_Shift, etc.)?  
+  **R:** 

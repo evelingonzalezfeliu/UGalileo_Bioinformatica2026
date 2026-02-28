@@ -1,0 +1,99 @@
+---
+title: "Taller_maftools"
+author: "Evelin Gonzalez"
+date: "2026-02-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introducción a Maftools
+El paquete maftools está diseñado para analizar y visualizar datos de mutaciones somáticas en archivos en formato MAF (Mutation Annotation Format). Este taller guiará a los participantes a través de los pasos básicos para cargar datos, generar resúmenes y realizar visualizaciones informativas.
+
+### Objetivos del Taller
+- Aprender a cargar archivos en formato MAF utilizando datos TCGA.
+- Explorar resúmenes de variantes somáticas por muestra y por gen.
+- Exportar resultados clave para informes adicionales.
+
+```{r load_maf, message=FALSE, warning=FALSE}
+#install.packages("R.utils")  # solo la primera vez
+library(maftools)
+
+# MAF público (ejemplo incluido en maftools: TCGA LAML)
+maf_path <- system.file("extdata", "tcga_laml.maf.gz", package = "maftools")
+clin_path <- system.file("extdata", "tcga_laml_annot.tsv", package = "maftools")
+
+clinical <- read.delim(clin_path, stringsAsFactors = FALSE)
+laml <- read.maf(maf = maf_path, clinicalData = clinical)
+
+laml
+```
+
+### Función: getSampleSummary
+
+La función getSampleSummary proporciona un resumen de las variantes detectadas por cada muestra.
+
+```{r getSampleSummary}
+#Shows sample summry.
+getSampleSummary(laml)
+```
+### Función: getGeneSummary
+
+La función getGeneSummary detalla la frecuencia de mutaciones en cada gen dentro del conjunto de datos.
+
+```{r getGeneSummary}
+#Shows gene summary.
+getGeneSummary(laml)
+```
+### Función: getClinicalData
+
+Si el archivo MAF contiene datos clínicos asociados a las muestras, estos pueden visualizarse con getClinicalData.
+
+```{r getClinicalData}
+#shows clinical data associated with samples
+getClinicalData(laml)
+```
+
+### Función: getFields
+
+Para explorar todos los campos disponibles en el archivo MAF, se utiliza la función getFields
+
+```{r getFields}
+#Shows all fields in MAF
+getFields(laml)
+```
+### Función: write.mafSummary
+
+La función write.mafSummary permite guardar los resúmenes generados en archivos externos.
+
+```{r write}
+#Writes maf summary to an output file with basename laml.
+write.mafSummary(maf = laml, basename = 'laml')
+```
+
+### Función: plotProtein
+
+```{r plotProtein}
+plotProtein(gene = "BRCA1") #refSeqID = "NM_007300"
+```
+
+### Función: plotmafSummary
+
+plotmafSummary genera un resumen visual de las mutaciones, como la distribución por tipo de variante.
+
+```{r plotmafSummary}
+plotmafSummary(maf = laml, rmOutlier = TRUE, addStat = 'median', dashboard = TRUE, titvRaw = FALSE)
+```
+
+### Función: oncoplot
+
+Un Oncoplot muestra las mutaciones más frecuentes en los genes principales.
+
+```{r oncoplot}
+oncoplot(laml)
+
+#oncoplot(laml, showTumorSampleBarcodes = FALSE ,SampleNamefontSize = 0.4, legendFontSize = 1.5,top = 10, drawColBar=TRUE, sortByAnnotation = TRUE)
+
+```
