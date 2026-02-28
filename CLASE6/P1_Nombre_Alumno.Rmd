@@ -148,7 +148,7 @@ plotmafSummary(
 
 El oncoplot muestra las mutaciones más frecuentes en la cohorte.
 
-```{r oncoplot}
+```{r plotmaf_summary}
 
 oncoplot(maf = laml, top = 15, showTumorSampleBarcodes = FALSE)
 ```
